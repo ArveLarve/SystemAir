@@ -13,7 +13,7 @@ var modClient = new ModbusRTU();
 
 var modbusValues = new Array();
 
-// open connection to a tcp line for Modbus
+// open connection to a tcp line for Modbus RTU
 modClient.connectTelnet("192.168.1.121",{port: 1234},function(){
   modClient.setID(1);
 });
@@ -42,26 +42,24 @@ server.on('listening', onListening);
 io.on('connection', function(socket){
 
   console.log('a user connected');
-  modClient.readHoldingRegisters(100, 1).then(function(data) {
-        console.log('REG_FAN_SPEED_LEVEL: ' + data.data);
+  modClient.readHoldingRegisters(100, 1)
+    .then(function(data) {
+        //console.log('REG_FAN_SPEED_LEVEL: ' + data.data);
         io.emit('speedMode', data.data);
-    }).then(function(){
+      })
+    .then(function(){
         modClient.readCoils(11202, 1).then(function(data) {
-              console.log('REG_DI_03: ' + data.data[0]);
-              io.emit('unBalanced', data.data[0]);
-        });
-    });
-  
-  //
+          //console.log('REG_DI_03: ' + data.data[0]);
+          io.emit('unBalanced', data.data[0]);
+        })
+      });
 
   socket.on('speedMode', function(value){
     //console.log('SpeedMode: ' + value);
-    modClient.writeRegisters(100,value)
-        .then(function(){
+    modClient.writeRegisters(100,value).then(function(){
           modClient.readHoldingRegisters(100, 1).then(function(latestval){
             io.emit('speedMode', latestval.data);
-            modbusValues["REG_FAN_SPEED_LEVEL"] = latestval.data;
-            console.log('Latest SpeedMode: ' + latestval.data);
+            //console.log('Latest SpeedMode: ' + latestval.data);
           });
         });
   });
@@ -71,7 +69,7 @@ io.on('connection', function(socket){
         .then(function(){
           modClient.readCoils(11202, 1).then(function(latestval){
             io.emit('unBalanced', latestval.data[0]);
-            console.log('Latest unBalanced: ' + latestval.data[0]);
+            //console.log('Latest unBalanced: ' + latestval.data[0]);
           });
         });
   });

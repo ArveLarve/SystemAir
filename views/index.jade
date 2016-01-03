@@ -1,21 +1,43 @@
 extends layout
 
 block content
-  h1 Ventilasjon
-
-  p
-    h3 Hastighet
-  div.input
-    input(type="radio", name="speedMode" value='1')
-    span.label Lav
-  div.input
-    input(type="radio", name="speedMode" value='2')
-    span.label Medium
-  div.input
-    input(type="radio", name="speedMode" value='3')
-    span.label Høy
-  p 
-    h3 Redusert Avtrekk
-  div.input
-    input(type="checkbox", id="unBalanced")
-    span.label Aktiv
+  body.
+    <div class="container">
+      <div class="row">
+        <h1>Ventilasjon</h1>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">Hastighet</div>
+            <div class="panel-body">
+              <div class="radio">
+                <label>
+                  <input type="radio" name="speedMode" value='1'/> Lav
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="speedMode" value='2'/> Normal
+                </label>
+              </div>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="speedMode" value='3'/> Høy
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">Redusert Avtrekk</div>
+            <div class="panel-body">
+              <label class="checkbox-inline">
+                <input type="checkbox" id="unBalanced"/> Aktiv
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

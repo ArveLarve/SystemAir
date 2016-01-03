@@ -10,9 +10,9 @@ $(document).ready(function(){
 });
 socket.on('speedMode', function(value){
     $('input[type=radio][name=speedMode][value=' + value + ']').prop('checked', true);
-    console.log("speedMode: " + value);
+    //console.log("speedMode: " + value);
   });
 socket.on('unBalanced', function(value){
     $('#unBalanced').prop('checked', value);
-    console.log("unBalanced: " + value);
+    //console.log("unBalanced: " + value);
   });
