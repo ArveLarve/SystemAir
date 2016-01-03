@@ -1,0 +1,280 @@
+[
+    {
+        "name": "REG_FAN_SPEED_LEVEL",
+        "registeraddress": 101,
+        "readmode": "R/W",
+        "nvm": "Y1",
+        "access": "Reg",
+        "description": "0: Fans off \n1: Fans on low speed \n2: Fans on normal speed \n3: Fans on high speed \n4: Auto mode"
+    },
+    {
+        "name": "REG_FAN_SF_FLOW_LOW",
+        "registeraddress": 102,
+        "readmode": "R",
+        "nvm": "Y1",
+        "access": "Reg",
+        "description": "Supply air fan speed for low speed"
+    },
+    {
+        "name": "REG_FAN_EF_FLOW_LOW",
+        "registeraddress": 103,
+        "readmode": "R/W",
+        "nvm": "Y1",
+        "access": "Reg",
+        "description": "Extract air fan speed for low speed"
+    },
+    {
+        "name": "REG_FAN_SF_FLOW_NOM",
+        "registeraddress": 104,
+        "readmode": "R/W",
+        "nvm": "Y1",
+        "access": "Reg",
+        "description": "Supply air fan speed for nominal speed"
+    },
+    {
+        "name": "REG_FAN_EF_FLOW_NOM",
+        "registeraddress": 105,
+        "readmode": "R/W",
+        "nvm": "Y1",
+        "access": "Reg",
+        "description": "Extract air fan speed for nominal speed"
+    },
+    {
+        "name": "REG_FAN_SF_FLOW_HIGH",
+        "registeraddress": 106,
+        "readmode": "R",
+        "nvm": "Y1",
+        "access": "Reg",
+        "description": "Supply air fan speed for high speed"
+    },
+    {
+        "name": "REG_FAN_EF_FLOW_HIGH",
+        "registeraddress": 107,
+        "readmode": "R/W",
+        "nvm": "Y1",
+        "access": "Reg",
+        "description": "Extract air fan speed for high speed"
+    },
+    {
+        "name": "REG_FAN_FLOW_UNITS",
+        "registeraddress": 108,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "0: l/s 1: m3/h"
+    },
+    {
+        "name": "REG_FAN_SF_PWM",
+        "registeraddress": 109,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "0..100: 0-10V"
+    },
+    {
+        "name": "REG_FAN_EF_PWM",
+        "registeraddress": 110,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "0..100: 0-10V"
+    },
+    {
+        "name": "REG_FAN_SF_RPM",
+        "registeraddress": 111,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Rotations per minute"
+    },
+    {
+        "name": "REG_FAN_EF_RPM",
+        "registeraddress": 112,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Rotations per minute"
+    },
+    {
+        "name": "REG_FAN_SPEED_LVL_CD",
+        "registeraddress": 113,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Speed level as shown on CD."
+    },
+    {
+        "name": "REG_FAN_ALLOW_MAN- UAL_FAN_STOP",
+        "registeraddress": 114,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg + Coil",
+        "description": "Coil 1809: manual fan stop allowed.\n0: CD cannot set fan speed to off.\n1: CD can set fan speed to off."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_RESET",
+        "registeraddress": 115,
+        "readmode": "W",
+        "nvm": "N",
+        "access": "Reg",
+        "description": "By writing the value 90 to this register, the values of REG_FAN_SPEED_LOG_xF_LVLx will be cleared."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_LVL1",
+        "registeraddress": 116,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 1."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_LVL2",
+        "registeraddress": 117,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 2."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_LVL3",
+        "registeraddress": 118,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 3."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_LVL4",
+        "registeraddress": 119,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 4."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_LVL5",
+        "registeraddress": 120,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 5."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_LVL1",
+        "registeraddress": 121,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 1."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_LVL2",
+        "registeraddress": 122,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 2."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_LVL3",
+        "registeraddress": 123,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 3."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_LVL4",
+        "registeraddress": 124,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 4."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_LVL5",
+        "registeraddress": 125,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 5."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_NR_LVL1",
+        "registeraddress": 126,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 1, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_NR_LVL2",
+        "registeraddress": 127,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 2, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_NR_LVL3",
+        "registeraddress": 128,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 3, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_NR_LVL4",
+        "registeraddress": 129,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 4, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_SF_NR_LVL5",
+        "registeraddress": 130,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for supply fan, speed level 5, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_NR_LVL1",
+        "registeraddress": 131,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 1, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_NR_LVL2",
+        "registeraddress": 132,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 2, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_NR_LVL3",
+        "registeraddress": 133,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 3, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_NR_LVL4",
+        "registeraddress": 134,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 4, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SPEED_LOG_EF_NR_LVL5",
+        "registeraddress": 135,
+        "readmode": "R",
+        "access": "Reg",
+        "description": "Fan speed log values for extract fan, speed level 5, non-resettable."
+    },
+    {
+        "name": "REG_FAN_SYSTEM_CURVE_SF",
+        "registeraddress": 136,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "System curve for supply fan. Value can be from 1 to 20."
+    },
+    {
+        "name": "REG_FAN_SYSTEM_CURVE_EF",
+        "registeraddress": 137,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "System curve for extract fan. Value can be from 1 to 10."
+    },
+    {
+        "name": "REG_FAN_CONTROL_TYPE",
+        "registeraddress": 138,
+        "readmode": "R/W",
+        "access": "Reg",
+        "description": "Type of fan control: 0: Air ow 1: Speed"
+    }
+]

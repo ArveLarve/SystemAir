@@ -1,0 +1,1415 @@
+{
+    "Fan Control": [
+        {
+            "name": "REG_FAN_SPEED_LEVEL",
+            "registeraddress": 101,
+            "readmode": "R/W",
+            "nvm": "Y1",
+            "access": "Reg",
+            "description": "0: Fans off \n1: Fans on low speed \n2: Fans on normal speed \n3: Fans on high speed \n4: Auto mode"
+        },
+        {
+            "name": "REG_FAN_SF_FLOW_LOW",
+            "registeraddress": 102,
+            "readmode": "R",
+            "nvm": "Y1",
+            "access": "Reg",
+            "description": "Supply air fan speed for low speed"
+        },
+        {
+            "name": "REG_FAN_EF_FLOW_LOW",
+            "registeraddress": 103,
+            "readmode": "R/W",
+            "nvm": "Y1",
+            "access": "Reg",
+            "description": "Extract air fan speed for low speed"
+        },
+        {
+            "name": "REG_FAN_SF_FLOW_NOM",
+            "registeraddress": 104,
+            "readmode": "R/W",
+            "nvm": "Y1",
+            "access": "Reg",
+            "description": "Supply air fan speed for nominal speed"
+        },
+        {
+            "name": "REG_FAN_EF_FLOW_NOM",
+            "registeraddress": 105,
+            "readmode": "R/W",
+            "nvm": "Y1",
+            "access": "Reg",
+            "description": "Extract air fan speed for nominal speed"
+        },
+        {
+            "name": "REG_FAN_SF_FLOW_HIGH",
+            "registeraddress": 106,
+            "readmode": "R",
+            "nvm": "Y1",
+            "access": "Reg",
+            "description": "Supply air fan speed for high speed"
+        },
+        {
+            "name": "REG_FAN_EF_FLOW_HIGH",
+            "registeraddress": 107,
+            "readmode": "R/W",
+            "nvm": "Y1",
+            "access": "Reg",
+            "description": "Extract air fan speed for high speed"
+        },
+        {
+            "name": "REG_FAN_FLOW_UNITS",
+            "registeraddress": 108,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "0: l/s 1: m3/h"
+        },
+        {
+            "name": "REG_FAN_SF_PWM",
+            "registeraddress": 109,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "0..100: 0-10V"
+        },
+        {
+            "name": "REG_FAN_EF_PWM",
+            "registeraddress": 110,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "0..100: 0-10V"
+        },
+        {
+            "name": "REG_FAN_SF_RPM",
+            "registeraddress": 111,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Rotations per minute"
+        },
+        {
+            "name": "REG_FAN_EF_RPM",
+            "registeraddress": 112,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Rotations per minute"
+        },
+        {
+            "name": "REG_FAN_SPEED_LVL_CD",
+            "registeraddress": 113,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Speed level as shown on CD."
+        },
+        {
+            "name": "REG_FAN_ALLOW_MAN- UAL_FAN_STOP",
+            "registeraddress": 114,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg + Coil",
+            "description": "Coil 1809: manual fan stop allowed.\n0: CD cannot set fan speed to off.\n1: CD can set fan speed to off."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_RESET",
+            "registeraddress": 115,
+            "readmode": "W",
+            "nvm": "N",
+            "access": "Reg",
+            "description": "By writing the value 90 to this register, the values of REG_FAN_SPEED_LOG_xF_LVLx will be cleared."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_LVL1",
+            "registeraddress": 116,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 1."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_LVL2",
+            "registeraddress": 117,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 2."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_LVL3",
+            "registeraddress": 118,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 3."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_LVL4",
+            "registeraddress": 119,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 4."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_LVL5",
+            "registeraddress": 120,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 5."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_LVL1",
+            "registeraddress": 121,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 1."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_LVL2",
+            "registeraddress": 122,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 2."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_LVL3",
+            "registeraddress": 123,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 3."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_LVL4",
+            "registeraddress": 124,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 4."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_LVL5",
+            "registeraddress": 125,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 5."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_NR_LVL1",
+            "registeraddress": 126,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 1, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_NR_LVL2",
+            "registeraddress": 127,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 2, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_NR_LVL3",
+            "registeraddress": 128,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 3, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_NR_LVL4",
+            "registeraddress": 129,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 4, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_SF_NR_LVL5",
+            "registeraddress": 130,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for supply fan, speed level 5, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_NR_LVL1",
+            "registeraddress": 131,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 1, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_NR_LVL2",
+            "registeraddress": 132,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 2, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_NR_LVL3",
+            "registeraddress": 133,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 3, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_NR_LVL4",
+            "registeraddress": 134,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 4, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SPEED_LOG_EF_NR_LVL5",
+            "registeraddress": 135,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Fan speed log values for extract fan, speed level 5, non-resettable."
+        },
+        {
+            "name": "REG_FAN_SYSTEM_CURVE_SF",
+            "registeraddress": 136,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "System curve for supply fan. Value can be from 1 to 20."
+        },
+        {
+            "name": "REG_FAN_SYSTEM_CURVE_EF",
+            "registeraddress": 137,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "System curve for extract fan. Value can be from 1 to 10."
+        },
+        {
+            "name": "REG_FAN_CONTROL_TYPE",
+            "registeraddress": 138,
+            "readmode": "R/W",
+            "access": "Reg",
+            "description": "Type of fan control: 0: Air ow 1: Speed"
+        }
+    ],
+    "Heater Control": [
+        {
+            "name": "REG_HC_HEATER_TYPE",
+            "registeraddress": 201,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "scaling": 1,
+            "access": "Reg",
+            "description": " 0: no heater\n 1: Water heater\n 2: Electrical heater\n 3: Contactor"
+        },
+        {
+            "name": "REG_HC_COOLER_TYPE",
+            "registeraddress": 202,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "scaling": 1,
+            "access": "Reg",
+            "description": " 0: no cooler\n 1: water cooler"
+        },
+        {
+            "name": "REG_HC_WCWH_STATE",
+            "registeraddress": 203,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Reg",
+            "description": "State of water heater/cooler"
+        },
+        {
+            "name": "REG_HC_WC_SIGNAL",
+            "registeraddress": 204,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Reg",
+            "description": "Signal to cooler"
+        },
+        {
+            "name": "REG_HC_WH_SIGNAL",
+            "registeraddress": 205,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Reg",
+            "description": "Signal to water heater"
+        },
+        {
+            "name": "REG_HC_FPS_LEVEL",
+            "registeraddress": 206,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "scaling": 1,
+            "access": "Reg",
+            "description": "Frost protection level. Allowed values: 70, 80, 90, 100, 110, 120 = 7, 8, 9, 10, 11, 12 °C."
+        },
+        {
+            "name": "REG_HC_TEMP_LVL",
+            "registeraddress": 207,
+            "readmode": "R/W",
+            "nvm": "Y1",
+            "access": "Reg",
+            "description": "Temperature set point level:\n 0: Manual summer mode.\n 1 to 5: correspond to temperature levels as given by REG_HC_TEMP_LVL1 to REG_HC_TEMP_LVL5.\n 6 to 29: extension of levels 1 to 5."
+        },
+        {
+            "name": "REG_HC_TEMP_SP",
+            "registeraddress": 208,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Reg",
+            "description": "Temperature set point."
+        },
+        {
+            "name": "REG_HC_TEMP_LVL1",
+            "registeraddress": 209,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature level 1 * 10."
+        },
+        {
+            "name": "REG_HC_TEMP_LVL2",
+            "registeraddress": 210,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature level 2 * 10."
+        },
+        {
+            "name": "REG_HC_TEMP_LVL3",
+            "registeraddress": 211,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature level 3 * 10."
+        },
+        {
+            "name": "REG_HC_TEMP_LVL4",
+            "registeraddress": 212,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature level 4 * 10."
+        },
+        {
+            "name": "REG_HC_TEMP_LVL5",
+            "registeraddress": 213,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature level 5 * 10."
+        },
+        {
+            "name": "REG_HC_TEMP_IN1",
+            "registeraddress": 214,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature on sensor 1 * 10. Supply air sensor."
+        },
+        {
+            "name": "REG_HC_TEMP_IN2",
+            "registeraddress": 215,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature on sensor 2 * 10. Extract air sensor."
+        },
+        {
+            "name": "REG_HC_TEMP_IN3",
+            "registeraddress": 216,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature on sensor 3 * 10. Exhaust air sensor."
+        },
+        {
+            "name": "REG_HC_TEMP_IN4",
+            "registeraddress": 217,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature on sensor 4 * 10. Overheating/Frostprotection sensor."
+        },
+        {
+            "name": "REG_HC_TEMP_IN5",
+            "registeraddress": 218,
+            "readmode": "R",
+            "scaling": 10,
+            "access": "Reg",
+            "description": "Temperature on sensor 5 * 10. Outdoor air sensor."
+        },
+        {
+            "name": "REG_HC_TEMP_STATE",
+            "registeraddress": 219,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Reg + Coil",
+            "description": " Coil 3489: State of temperature sensor on input 1\n Coil 3490: State of temperature sensor on input 2\n Coil 3491: State of temperature sensor on input 3\n Coil 3492: State of temperature sensor on input 4\n Coil 3493: State of temperature sensor on input 5\n\n Coil state: 0: no sensor fault 1: sensor fault"
+        },
+        {
+            "name": "REG_HC_PRE- HEATER_TYPE",
+            "registeraddress": 220,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "0: no heater 1: Electrical heater"
+        },
+        {
+            "name": "REG_HC_HEATER_TEMP_ SP",
+            "registeraddress": 221,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Set point support control heater during \"Home/Leave\" function."
+        }
+    ],
+    "Damper": [
+        {
+            "name": "REG_DAMPER_PWM",
+            "registeraddress": 301,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Output value for damper. 0-100 correspond to 0 to 10V."
+        }
+    ],
+    "Rotor": [
+        {
+            "name": "REG_ROTOR_STATE",
+            "registeraddress": 351,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "State for the rotor control state machine. 0: Normal 1: Rotor fault assumed 2: Rotor fault detected\n 3: Summer mode conditions valid, but summer mode not yet active.\n 4: Summer mode\n 5: Waiting to go out of Manual summer mode due to temperature conditions\n 6: Manual summer mode 7: Rotor cleaning during summer mode\n 8: Rotor cleaning during manual summer mode\n 9: Fans off 10: Rotor cleaning during fans off\n 11: Rotor fault, conditions for rotor fault not valid anymore"
+        },
+        {
+            "name": "REG_ROTOR_RELAY_ACTIVE",
+            "registeraddress": 352,
+            "readmode": "R",
+            "access": "Reg + Coil",
+            "description": "Coil 5617: rotor relay active. 0: not active 1: active."
+        }
+    ],
+    "Week Program": [
+        {
+            "name": "REG_WP_ACTIVE",
+            "registeraddress": 401,
+            "readmode": "R",
+            "access": "Reg + Coil",
+            "description": "Coil address: 6401 \n0: week program not active \n1: week program active"
+        },
+        {
+            "name": "REG_WP_ON_LVL",
+            "registeraddress": 402,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Week program active speed level."
+        },
+        {
+            "name": "REG_WP_OFF_LVL",
+            "registeraddress": 403,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Week program inactive speed level."
+        },
+        {
+            "name": "REG_WP_WD1_PRD1_START_H",
+            "registeraddress": 404,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Start of week program, day 1, period 1, hour"
+        },
+        {
+            "name": "REG_WP_WD1_PRD1_START_M",
+            "registeraddress": 405,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Start of week program, day 1, period 1, minute.\n Allowed values: 0, 10, 15, 20, 30, 40, 45, 50"
+        },
+        {
+            "name": "REG_WP_WD1_PRD1_END_H",
+            "registeraddress": 406,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "End of week program, day 1, period 1, hour"
+        },
+        {
+            "name": "REG_WP_WD1_PRD1_END_M",
+            "registeraddress": 407,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "End of week program, day 1, period 1, minute.\n Allowed values: 0, 10, 15, 20, 30, 40, 45, 50"
+        },
+        {
+            "name": "REG_WP_WD1_PRD2_START_H",
+            "registeraddress": 408,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD1_PRD2_START_M",
+            "registeraddress": 409,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD1_PRD2_END_H",
+            "registeraddress": 410,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD1_PRD2_END_M",
+            "registeraddress": 411,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD2_PRD1_START_H",
+            "registeraddress": 412,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD2_PRD1_START_M",
+            "registeraddress": 413,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD2_PRD1_END_H",
+            "registeraddress": 414,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD2_PRD1_END_M",
+            "registeraddress": 415,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD2_PRD2_START_H",
+            "registeraddress": 416,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD2_PRD2_START_M",
+            "registeraddress": 417,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD2_PRD2_END_H",
+            "registeraddress": 418,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD2_PRD2_END_M",
+            "registeraddress": 419,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD3_PRD1_START_H",
+            "registeraddress": 420,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD3_PRD1_START_M",
+            "registeraddress": 421,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD3_PRD1_END_H",
+            "registeraddress": 422,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD3_PRD1_END_M",
+            "registeraddress": 423,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD3_PRD2_START_H",
+            "registeraddress": 424,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD3_PRD2_START_M",
+            "registeraddress": 425,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD3_PRD2_END_H",
+            "registeraddress": 426,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD3_PRD2_END_M",
+            "registeraddress": 427,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD4_PRD1_START_H",
+            "registeraddress": 428,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD4_PRD1_START_M",
+            "registeraddress": 429,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD4_PRD1_END_H",
+            "registeraddress": 430,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD4_PRD1_END_M",
+            "registeraddress": 431,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD4_PRD2_START_H",
+            "registeraddress": 432,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD4_PRD2_START_M",
+            "registeraddress": 433,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD4_PRD2_END_H",
+            "registeraddress": 434,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD4_PRD2_END_M",
+            "registeraddress": 435,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD5_PRD1_START_H",
+            "registeraddress": 436,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD5_PRD1_START_M",
+            "registeraddress": 437,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD5_PRD1_END_H",
+            "registeraddress": 438,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD5_PRD1_END_M",
+            "registeraddress": 439,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD5_PRD2_START_H",
+            "registeraddress": 440,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD5_PRD2_START_M",
+            "registeraddress": 441,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD5_PRD2_END_H",
+            "registeraddress": 442,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD5_PRD2_END_M",
+            "registeraddress": 443,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD6_PRD1_START_H",
+            "registeraddress": 444,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD6_PRD1_START_M",
+            "registeraddress": 445,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD6_PRD1_END_H",
+            "registeraddress": 446,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD6_PRD1_END_M",
+            "registeraddress": 447,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD6_PRD2_START_H",
+            "registeraddress": 448,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD6_PRD2_START_M",
+            "registeraddress": 449,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD6_PRD2_END_H",
+            "registeraddress": 450,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD6_PRD2_END_M",
+            "registeraddress": 451,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD7_PRD1_START_H",
+            "registeraddress": 452,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD7_PRD1_START_M",
+            "registeraddress": 453,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD7_PRD1_END_H",
+            "registeraddress": 454,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD7_PRD1_END_M",
+            "registeraddress": 455,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD7_PRD2_START_H",
+            "registeraddress": 456,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD7_PRD2_START_M",
+            "registeraddress": 457,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD7_PRD2_END_H",
+            "registeraddress": 458,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        },
+        {
+            "name": "REG_WP_WD7_PRD2_END_M",
+            "registeraddress": 459,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg"
+        }
+    ],
+    "System Parameters": [
+        {
+            "name": "REG_SYSTEM_TYPE",
+            "registeraddress": 501,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "0: VR400 \n1: VR700 \n2: VR700DK \n3: VR400DE \n4: VTC300 \n5: VTC700 \n12: VTR150K \n13: VTR200B \n14: VSR300 \n15: VSR500 \n16: VSR150 \n17: VTR300 \n18: VTR500 \n19: VSR300DE \n20: VTC200 \nAll other values are ignored."
+        },
+        {
+            "name": "REG_SYSTEM_PROG_V_HIGH",
+            "registeraddress": 502,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Main program version, high number"
+        },
+        {
+            "name": "REG_SYSTEM_PROG_V_MID",
+            "registeraddress": 503,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Main program version, middle number"
+        },
+        {
+            "name": "REG_SYSTEM_PROG_V_LOW",
+            "registeraddress": 504,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Main program version, low number"
+        },
+        {
+            "name": "REG_SYSTEM_BOOT_PROG_V_HIGH",
+            "registeraddress": 505,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Boot program version, high number"
+        },
+        {
+            "name": "REG_SYSTEM_ BOOT_PROG_V_MID",
+            "registeraddress": 506,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Boot program version, middle number"
+        },
+        {
+            "name": "REG_SYSTEM_ BOOT_PROG_V_LOW",
+            "registeraddress": 507,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Boot program version, low number"
+        },
+        {
+            "name": "REG_STORE_NVM",
+            "registeraddress": 549,
+            "readmode": "W",
+            "nvm": "N",
+            "access": "Reg",
+            "description": "Write value 165 will stores the following parameters in NVM:\n• REG_FAN_SPEED_LEVEL \n• REG_HC_TEMP_LVL \n• REG_FAN_SF_FLOW_LOW \n• REG_FAN_EF_FLOW_LOW \n• REG_FAN_SF_FLOW_NOM \n• REG_FAN_EF_FLOW_NOM \n• REG_FAN_SF_FLOW_HIGH \n• REG_FAN_EF_FLOW_HIGH \nAll other values: no functionality.\n Can only be activated by addressing with Function Code 6 (“Write single register”)."
+        }
+    ],
+    "Clock": [
+        {
+            "name": "REG_CLK_S",
+            "registeraddress": 551,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Clock: seconds (0..59)"
+        },
+        {
+            "name": "REG_CLK_M",
+            "registeraddress": 552,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Clock: minutes (0..59)"
+        },
+        {
+            "name": "REG_CLK_H",
+            "registeraddress": 553,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Clock: hours (0..23)"
+        },
+        {
+            "name": "REG_CLK_D",
+            "registeraddress": 554,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Clock: day of month (1..31)"
+        },
+        {
+            "name": "REG_CLK_MNTH",
+            "registeraddress": 555,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Clock: month (1..12)"
+        },
+        {
+            "name": "REG_CLK_Y",
+            "registeraddress": 556,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Clock: year (0 = 2000)"
+        },
+        {
+            "name": "REG_CLK_WD",
+            "registeraddress": 557,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Clock: day of week (0..6: Monday..sunday)"
+        }
+    ],
+    "Filter": [
+        {
+            "name": "REG_FILTER_PER",
+            "registeraddress": 601,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Filter replace time in months"
+        },
+        {
+            "name": "REG_FILTER_DAYS",
+            "registeraddress": 602,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Elapsed days since last lter replacement"
+        }
+    ],
+    "VTC Defrosting": [
+        {
+            "name": "REG_DEFR_STATE_VTC",
+            "registeraddress": 651,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "State of defrosting state machine. \n0: No defrosting ongoing \n1: Reduced ow defrosting \n2: Bypass defrosting\n3: Stop defrosting \n4: Defrost error"
+        },
+        {
+            "name": "REG_DEFR_CONFIGURATION",
+            "registeraddress": 652,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Defrosting con guration. \n0: A \n1: B \n2: C\n3: D"
+        },
+        {
+            "name": "REG_DEFR_UNBAL_ALLOWED",
+            "registeraddress": 653,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg + Coil",
+            "description": "Coil 10433: Unbalance allowed. \n0: Unbalance not allowed. \n1: Unbalance allowed."
+        },
+        {
+            "name": "REG_DEFR_MODE_VTC",
+            "registeraddress": 654,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Defrosting mode. \nAllowed values: 1-5."
+        }
+    ],
+    "VR/VTR Defrosting": [
+        {
+            "name": "REG_DEFR_STATE_VR",
+            "registeraddress": 671,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "State of defrosting state machine. \n0: Inactive \n1: Low temperature \n2: Defrosting"
+        },
+        {
+            "name": "REG_DEFR_MODE_VR",
+            "registeraddress": 672,
+            "readmode": "R/RW",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Defrosting mode. \nAllowed values: 0-5."
+        }
+    ],
+    "Digital Inputs": [
+        {
+            "name": "REG_DI_ALL",
+            "registeraddress": 701,
+            "readmode": "R/W",
+            "access": "Reg + Coil",
+            "description": "Digital inputs. \nCoil 11201: input 1. \nCoil 11202: input 2. \nCoil 11203: input 3. \nCoil 11204: input 4. \nCoil 11205: input 5. \nCoil 11206: input 6. Note: read only! \nCoil 11207: input 7. \nCoil value 0: input inactive. \nCoil value 1: input active."
+        },
+        {
+            "name": "REG_DI_EXT_RUNNING_M",
+            "registeraddress": 702,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Extended running time in minutes"
+        },
+        {
+            "name": "REG_DI_EXT_RUNNING_SPEED_LVL",
+            "registeraddress": 703,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Fan speed level during extended running: \n0: Off \n1: Low speed \n2: Normal speed\n3: High speed"
+        },
+        {
+            "name": "REG_DI1_SF_LVL",
+            "registeraddress": 704,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Supply fan speed level at activated digital input 1"
+        },
+        {
+            "name": "REG_DI1_EF_LVL",
+            "registeraddress": 705,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Extract fan speed level at activated digital input 1"
+        },
+        {
+            "name": "REG_DI2_SF_LVL",
+            "registeraddress": 706,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Supply fan speed level at activated digital input 2"
+        },
+        {
+            "name": "REG_DI2_EF_LVL",
+            "registeraddress": 707,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Extract fan speed level at activated digital input 2"
+        },
+        {
+            "name": "REG_DI3_SF_LVL",
+            "registeraddress": 708,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Supply fan speed level at activated digital input 3"
+        },
+        {
+            "name": "REG_DI3_EF_LVL",
+            "registeraddress": 709,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Reg",
+            "description": "Extract fan speed level at activated digital input 3"
+        }
+    ],
+    "PCU-PB": [
+        {
+            "name": "REG_PCU_PB_RELAYS",
+            "registeraddress": 751,
+            "readmode": "R",
+            "access": "Reg + Coil",
+            "description": "Coil Address 12001: relay for preheater on \nCoil Address 12002: relay for reheater on\nCoil Address 12003: common relay for heater and preheater on"
+        }
+    ],
+    "Alarms": [
+        {
+            "name": "REG_ALARMS_ALL",
+            "registeraddress": 801,
+            "readmode": "R",
+            "access": "Reg + Coil",
+            "description": "Coil Address 12801: Filter alarm\nCoil Address 12802: Fan alarm\nCoil Address 12803: Not used\nCoil Address 12804: Rotor alarm\nCoil Address 12805: Frost alarm\nCoil Address 12806: PCU-PB alarm\nCoil Address 12807: Temperature sensor alarm\nCoil Address 12808: Emergency Thermostat alarm\nCoil Address 12809: Damper alarm \nCoil value 0: alarm not active \nCoil value 1: alarm active"
+        },
+        {
+            "name": "REG_ALARMS_RELAY_ACTIVE",
+            "registeraddress": 802,
+            "readmode": "R",
+            "access": "Reg + Coil",
+            "description": "Coil address 12817: alarm relay active. \n0: Relay not active. \n1: Relay active."
+        }
+    ],
+    "Demand Control": [
+        {
+            "name": "REG_DEMC_CO2_SP",
+            "registeraddress": 851,
+            "readmode": "R/W",
+            "access": "Reg",
+            "description": "Range: 0-2000 \n0: Off"
+        },
+        {
+            "name": "REG_DEMC_CO2_P_BAND",
+            "registeraddress": 852,
+            "readmode": "R/W",
+            "access": "Reg",
+            "description": "Range: 1-2000"
+        },
+        {
+            "name": "REG_DEMC_CO2_I_TIME",
+            "registeraddress": 853,
+            "readmode": "R/W",
+            "access": "Reg",
+            "description": "Range:1-120 \n0: no integration"
+        },
+        {
+            "name": "REG_DEMC_RH_SP",
+            "registeraddress": 854,
+            "readmode": "R/W",
+            "access": "Reg",
+            "description": "Range: 0-100 \n0: Off"
+        },
+        {
+            "name": "REG_DEMC_RH_P_BAND",
+            "registeraddress": 855,
+            "readmode": "R/W",
+            "access": "Reg",
+            "description": "Range: 1-100"
+        },
+        {
+            "name": "REG_DEMC_RH_I_TIME",
+            "registeraddress": 856,
+            "readmode": "R/W",
+            "access": "Reg",
+            "description": "Range:1-120 \n0: no integration"
+        },
+        {
+            "name": "REG_DEMC_STATE",
+            "registeraddress": 857,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "0: Start up \n1: Waiting for sensor network \n2: Waiting for sensor data \n3: Auto mode \n4: normal mode"
+        },
+        {
+            "name": "REG_DEMC_MODBUS_CO2_VALUE",
+            "registeraddress": 858,
+            "readmode": "W",
+            "access": "Reg",
+            "description": "Value in ppm. Range: 0-2000."
+        },
+        {
+            "name": "REG_DEMC_MODBUS_RH_VALUE",
+            "registeraddress": 859,
+            "readmode": "W",
+            "access": "Reg",
+            "description": "Value in %. Range: 0-100."
+        }
+    ],
+    "Wireless Network": [
+        {
+            "name": "REG_WL_NODE_1_TYPE",
+            "registeraddress": 901,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "0: No connected \n1: CO2 sensor \n2: RH sensor \n3: DI module\n4: User interface"
+        },
+        {
+            "name": "REG_WL_NODE_1_VALUE_T",
+            "registeraddress": 902,
+            "readmode": "R",
+            "access": "Reg + Coil",
+            "description": "Value depending on node type:\n REG_WL_NODE_1_TYPE = 1: CO2 value\n REG_WL_NODE_1_TYPE = 2: RH value\n REG_WL_NODE_1_TYPE = 3: use coils to read:\nCoil Address 14417: input 1 \nCoil Address 14418: input 2 \nAll other node types: 0."
+        },
+        {
+            "name": "REG_WL_NODE_1_STATUS",
+            "registeraddress": 903,
+            "readmode": "R",
+            "access": "Reg",
+            "description": "Node state: \n0: not bound \n1: OK \n2: Battery failure \n3: Communication failure \n4: No network \n5: Sensor failure"
+        },
+        {
+            "name": "REG_WL_NODE_2_xx",
+            "registeraddress": "911- 920",
+            "description": "As for register addresses 901-910"
+        },
+        {
+            "name": "REG_WL_NODE_3_xx",
+            "registeraddress": "921- 930",
+            "description": "As for register addresses 901-910"
+        },
+        {
+            "name": "REG_WL_NODE_4_xx",
+            "registeraddress": "931- 940",
+            "description": "As for register addresses 901-910"
+        },
+        {
+            "name": "REG_WL_NODE_5_xx",
+            "registeraddress": "941- 950",
+            "description": "As for register addresses 901-910"
+        },
+        {
+            "name": "REG_WL_NODE_6_xx",
+            "registeraddress": "951- 960",
+            "description": "As for register addresses 901-910"
+        },
+        {
+            "name": "REG_WL_NODE_7_xx",
+            "registeraddress": "961- 970",
+            "description": "As for register addresses 901-910"
+        },
+        {
+            "name": "REG_WL_NODE_8_xx",
+            "registeraddress": "971- 980",
+            "description": "As for register addresses 901-910"
+        },
+        {
+            "name": "REG_WL_NODE_9_xx",
+            "registeraddress": "981- 990",
+            "description": "As for register addresses 901-910"
+        },
+        {
+            "name": "REG_WL_NODE_10_xx",
+            "registeraddress": "991- 1000",
+            "description": "As for register addresses 901-910"
+        },
+        {
+            "name": "REG_WL_DI_CONNECTION_1",
+            "registeraddress": 1001,
+            "description": "0: Not connected \n1: DI1 \n2: DI2 \n3: DI3\n4: DI4 \n5: DI5 \n6: not acctepted \n7: DI7 \nOther values: not accepted"
+        },
+        {
+            "name": "REG_WL_DI_CONNECTION_2",
+            "registeraddress": 1002,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNECTION_3",
+            "registeraddress": 1003,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNECTION_4",
+            "registeraddress": 1004,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNECTION_5",
+            "registeraddress": 1005,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNECTION_6",
+            "registeraddress": 1006,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNECTION_7",
+            "registeraddress": 1007,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNECTION_8",
+            "registeraddress": 1008,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNECTION_9",
+            "registeraddress": 1009,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_10",
+            "registeraddress": 1010,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_11",
+            "registeraddress": 1011,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_12",
+            "registeraddress": 1012,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_13",
+            "registeraddress": 1013,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_14",
+            "registeraddress": 1014,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_15",
+            "registeraddress": 1015,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_16",
+            "registeraddress": 1016,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_17",
+            "registeraddress": 1017,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_18",
+            "registeraddress": 1018,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_19",
+            "registeraddress": 1019,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        },
+        {
+            "name": "REG_WL_DI_CONNEC- TION_20",
+            "registeraddress": 1020,
+            "description": "As for REG_WL_DI_CONNECTION_1"
+        }
+    ]
+}

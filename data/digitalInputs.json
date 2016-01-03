@@ -1,0 +1,73 @@
+[
+    {
+        "name": "REG_DI_ALL",
+        "registeraddress": 701,
+        "readmode": "R/W",
+        "access": "Reg + Coil",
+        "description": "Digital inputs. \nCoil 11201: input 1. \nCoil 11202: input 2. \nCoil 11203: input 3. \nCoil 11204: input 4. \nCoil 11205: input 5. \nCoil 11206: input 6. Note: read only! \nCoil 11207: input 7. \nCoil value 0: input inactive. \nCoil value 1: input active."
+    },
+    {
+        "name": "REG_DI_EXT_RUNNING_M",
+        "registeraddress": 702,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "Extended running time in minutes"
+    },
+    {
+        "name": "REG_DI_EXT_RUNNING_SPEED_LVL",
+        "registeraddress": 703,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "Fan speed level during extended running: \n0: Off \n1: Low speed \n2: Normal speed\n3: High speed"
+    },
+    {
+        "name": "REG_DI1_SF_LVL",
+        "registeraddress": 704,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "Supply fan speed level at activated digital input 1"
+    },
+    {
+        "name": "REG_DI1_EF_LVL",
+        "registeraddress": 705,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "Extract fan speed level at activated digital input 1"
+    },
+    {
+        "name": "REG_DI2_SF_LVL",
+        "registeraddress": 706,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "Supply fan speed level at activated digital input 2"
+    },
+    {
+        "name": "REG_DI2_EF_LVL",
+        "registeraddress": 707,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "Extract fan speed level at activated digital input 2"
+    },
+    {
+        "name": "REG_DI3_SF_LVL",
+        "registeraddress": 708,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "Supply fan speed level at activated digital input 3"
+    },
+    {
+        "name": "REG_DI3_EF_LVL",
+        "registeraddress": 709,
+        "readmode": "R/W",
+        "nvm": "Y",
+        "access": "Reg",
+        "description": "Extract fan speed level at activated digital input 3"
+    }
+]
