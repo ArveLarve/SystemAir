@@ -4,38 +4,38 @@ block content
   body.
     <div class="container">
       <div class="row">
-        <h1>Ventilasjon</h1>
+        <div class="header">Systemair Villavent</div>
       </div>
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <div class="panel panel-default">
-            <div class="panel-heading">Hastighet</div>
+            <div class="panel-heading">Speed</div>
             <div class="panel-body">
-              <div class="radio">
-                <label>
-                  <input type="radio" name="speedMode" value='1'/> Lav
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="speedMode" value='2'/> Normal
-                </label>
-              </div>
-              <div class="radio">
-                <label>
-                  <input type="radio" name="speedMode" value='3'/> Høy
-                </label>
+              <div class="btn-group" role="group" aria-label="...">
+                <button type="button" id="btn-speed-min" class="btn btn-lg btn-default"><span class="icon-fan-speed-min"></span><br/>Low</button>
+                <button type="button" id="btn-speed-med" class="btn btn-lg btn-default"><span class="icon-fan-speed-med"></span><br/>Normal</button>
+                <button type="button" id="btn-speed-max" class="btn btn-lg btn-default"><span class="icon-fan-speed-max"></span><br/>High</button>
               </div>
             </div>
           </div>
         </div>
         <div class="col-sm-6 col-xs-12">
           <div class="panel panel-default">
-            <div class="panel-heading">Redusert Avtrekk</div>
-            <div class="panel-body">
-              <label class="checkbox-inline">
-                <input type="checkbox" id="unBalanced"/> Aktiv
-              </label>
+            <div class="panel-heading">Fire Place</div>
+            <div class="panel-body fireplace">
+                <button type="button" id="btn-fireplace-mode" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span><br/>Fire Place Mode</button>
+                <div class="timer">
+                  <div class="remaining">2 min</div>
+                  <div id="slider" class="dragdealer">
+                    <div class="handle blue-bar"></div>
+                  </div>
+                  <div class="ticks">
+                    <span>0</span>
+                    <span>30</span>
+                    <span>60</span>
+                    <span>90</span>
+                    <span>120</span>
+                </div>
             </div>
           </div>
         </div>

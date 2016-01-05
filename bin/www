@@ -31,6 +31,7 @@ app.set('port', port);
 
 var server = http.createServer(app);
 var io = require('socket.io')(server);
+var Stopwatch = require('../models/stopwatch');
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -39,45 +40,84 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
-io.on('connection', function(socket){
+var stopwatch = new Stopwatch();
+stopwatch.on('tick:stopwatch',function(time){
+  io.sockets.emit('time',{ time: time });
+});
 
+stopwatch.on('start:stopwatch',function(){
+  modClient.writeCoil(11202,true)
+      .then(function(){
+        modClient.readCoils(11202, 1).then(function(latestval){
+          io.emit('unBalanced', latestval.data[0]);
+          //console.log('Latest unBalanced: ' + latestval.data[0]);
+        }).then(function(){
+          modClient.readHoldingRegisters(100, 1)
+            .then(function(data) {
+                //console.log('REG_FAN_SPEED_LEVEL: ' + data.data);
+                io.emit('speedMode', data.data);
+              })
+        });
+      });
+});
+
+stopwatch.on('stop:stopwatch',function(){
+  modClient.writeCoil(11202,false)
+      .then(function(){
+        modClient.readCoils(11202, 1).then(function(latestval){
+            io.emit('unBalanced', latestval.data[0]);
+            //console.log('Latest unBalanced: ' + latestval.data[0]);
+        }).then(function(){
+          modClient.readHoldingRegisters(100, 1)
+            .then(function(data) {
+                //console.log('REG_FAN_SPEED_LEVEL: ' + data.data);
+                io.emit('speedMode', data.data);
+              })
+        });
+      })
+
+});
+
+
+io.on('connection', function(socket){
   console.log('a user connected');
-  modClient.readHoldingRegisters(100, 1)
-    .then(function(data) {
+  modClient.readHoldingRegisters(100, 1).then(function(data) {
         //console.log('REG_FAN_SPEED_LEVEL: ' + data.data);
         io.emit('speedMode', data.data);
-      })
-    .then(function(){
+      }).then(function(){
         modClient.readCoils(11202, 1).then(function(data) {
           //console.log('REG_DI_03: ' + data.data[0]);
           io.emit('unBalanced', data.data[0]);
         })
-      });
+      }).catch(console.log);    
 
   socket.on('speedMode', function(value){
     //console.log('SpeedMode: ' + value);
-    modClient.writeRegisters(100,value).then(function(){
-          modClient.readHoldingRegisters(100, 1).then(function(latestval){
+    modClient.writeRegisters(100,value)
+      .then(function(){
+        modClient.readHoldingRegisters(100, 1)
+          .then(function(latestval){
             io.emit('speedMode', latestval.data);
             //console.log('Latest SpeedMode: ' + latestval.data);
           });
-        });
+      })
+      .catch(console.log);
   });
-  socket.on('unBalanced', function(value){
-    //console.log('unBalanced: ' + value);
-    modClient.writeCoil(11202,value)
-        .then(function(){
-          modClient.readCoils(11202, 1).then(function(latestval){
-            io.emit('unBalanced', latestval.data[0]);
-            //console.log('Latest unBalanced: ' + latestval.data[0]);
-          });
-        });
+  socket.on('unBalanced', function(){
+    console.log("click!");
+    if(stopwatch.isRunning()){
+      stopwatch.stop();
+    }else{
+      stopwatch.start();
+    }
+  });
+
+  socket.on('fire-place-timer', function(value){
+    stopwatch.reset(value);
   });
 });
 
-function exitModbus(){
-  modClient._port.close();
-}
+
 
 /**
  * Normalize a port into a number, string, or false.

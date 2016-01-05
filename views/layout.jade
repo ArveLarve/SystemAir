@@ -3,10 +3,13 @@ html
   head
     meta(name='viewport', content='width=device-width, initial-scale=1')
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/vendors/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/my-fonts.css')
+    link(rel='stylesheet', href='/stylesheets/my-style.css')
   block content
-  
+
   script(src='/socket.io/socket.io.js')
-  script(src='http://code.jquery.com/jquery-1.11.1.js')
+  script(src='/vendors/jquery/jquery.min.js')
+  script(src='/vendors/bootstrap/js/bootstrap.min.js')
+  script(src='/vendors/dragdealer/dragdealer.min.js')
   script(src='/javascripts/myApp.js')
