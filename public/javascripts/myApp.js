@@ -66,7 +66,8 @@ socket.on('time',function (time) {
 
 	$('.remaining').text(time.time);
 	var parts = time.time.split(':');
-	var place = parts[1] - (parts[1] % 15) + 15;
+	var minutes = (parseInt(parts[0]) * 60) + parseInt(parts[1]);
+	var place = minutes - (minutes % 15) + 15;
 	dragdealer.setValue((place/120),0,true);
 
 });
