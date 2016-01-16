@@ -1,12 +1,12 @@
 {
-    "Fan Control": [
+    "fanControl": [
         {
             "name": "REG_FAN_SPEED_LEVEL",
             "registeraddress": 101,
             "readmode": "R/W",
             "nvm": "Y1",
             "access": "Reg",
-            "description": "0: Fans off \n1: Fans on low speed \n2: Fans on normal speed \n3: Fans on high speed \n4: Auto mode"
+            "undefined": "0: Fans off \n1: Fans on low speed \n2: Fans on normal speed \n3: Fans on high speed \n4: Auto mode"
         },
         {
             "name": "REG_FAN_SF_FLOW_LOW",
@@ -14,7 +14,7 @@
             "readmode": "R",
             "nvm": "Y1",
             "access": "Reg",
-            "description": "Supply air fan speed for low speed"
+            "undefined": "Supply air fan speed for low speed"
         },
         {
             "name": "REG_FAN_EF_FLOW_LOW",
@@ -22,7 +22,7 @@
             "readmode": "R/W",
             "nvm": "Y1",
             "access": "Reg",
-            "description": "Extract air fan speed for low speed"
+            "undefined": "Extract air fan speed for low speed"
         },
         {
             "name": "REG_FAN_SF_FLOW_NOM",
@@ -30,7 +30,7 @@
             "readmode": "R/W",
             "nvm": "Y1",
             "access": "Reg",
-            "description": "Supply air fan speed for nominal speed"
+            "undefined": "Supply air fan speed for nominal speed"
         },
         {
             "name": "REG_FAN_EF_FLOW_NOM",
@@ -38,7 +38,7 @@
             "readmode": "R/W",
             "nvm": "Y1",
             "access": "Reg",
-            "description": "Extract air fan speed for nominal speed"
+            "undefined": "Extract air fan speed for nominal speed"
         },
         {
             "name": "REG_FAN_SF_FLOW_HIGH",
@@ -46,7 +46,7 @@
             "readmode": "R",
             "nvm": "Y1",
             "access": "Reg",
-            "description": "Supply air fan speed for high speed"
+            "undefined": "Supply air fan speed for high speed"
         },
         {
             "name": "REG_FAN_EF_FLOW_HIGH",
@@ -54,7 +54,7 @@
             "readmode": "R/W",
             "nvm": "Y1",
             "access": "Reg",
-            "description": "Extract air fan speed for high speed"
+            "undefined": "Extract air fan speed for high speed"
         },
         {
             "name": "REG_FAN_FLOW_UNITS",
@@ -62,50 +62,58 @@
             "readmode": "R/W",
             "nvm": "Y",
             "access": "Reg",
-            "description": "0: l/s 1: m3/h"
+            "undefined": "0: l/s 1: m3/h"
         },
         {
             "name": "REG_FAN_SF_PWM",
             "registeraddress": 109,
             "readmode": "R",
             "access": "Reg",
-            "description": "0..100: 0-10V"
+            "undefined": "0..100: 0-10V"
         },
         {
             "name": "REG_FAN_EF_PWM",
             "registeraddress": 110,
             "readmode": "R",
             "access": "Reg",
-            "description": "0..100: 0-10V"
+            "undefined": "0..100: 0-10V"
         },
         {
             "name": "REG_FAN_SF_RPM",
             "registeraddress": 111,
             "readmode": "R",
             "access": "Reg",
-            "description": "Rotations per minute"
+            "undefined": "Rotations per minute"
         },
         {
             "name": "REG_FAN_EF_RPM",
             "registeraddress": 112,
             "readmode": "R",
             "access": "Reg",
-            "description": "Rotations per minute"
+            "undefined": "Rotations per minute"
         },
         {
             "name": "REG_FAN_SPEED_LVL_CD",
             "registeraddress": 113,
             "readmode": "R",
             "access": "Reg",
-            "description": "Speed level as shown on CD."
+            "undefined": "Speed level as shown on CD."
         },
         {
-            "name": "REG_FAN_ALLOW_MAN- UAL_FAN_STOP",
+            "name": "REG_FAN_ALLOW_MANUAL_FAN_STOP",
             "registeraddress": 114,
             "readmode": "R/W",
             "nvm": "Y",
-            "access": "Reg + Coil",
-            "description": "Coil 1809: manual fan stop allowed.\n0: CD cannot set fan speed to off.\n1: CD can set fan speed to off."
+            "access": "Reg",
+            "undefined": "Coil 1809: manual fan stop allowed.\n0: CD cannot set fan speed to off.\n1: CD can set fan speed to off."
+        },
+        {
+            "name": "REG_FAN_ALLOW_MANUAL_FAN_STOP_COIL",
+            "registeraddress": 1809,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Coil",
+            "undefined": "Coil 1809: manual fan stop allowed.\n0: CD cannot set fan speed to off.\n1: CD can set fan speed to off.\nRegister Adress 114"
         },
         {
             "name": "REG_FAN_SPEED_LOG_RESET",
@@ -113,147 +121,147 @@
             "readmode": "W",
             "nvm": "N",
             "access": "Reg",
-            "description": "By writing the value 90 to this register, the values of REG_FAN_SPEED_LOG_xF_LVLx will be cleared."
+            "undefined": "By writing the value 90 to this register, the values of REG_FAN_SPEED_LOG_xF_LVLx will be cleared."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_LVL1",
             "registeraddress": 116,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 1."
+            "undefined": "Fan speed log values for supply fan, speed level 1."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_LVL2",
             "registeraddress": 117,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 2."
+            "undefined": "Fan speed log values for supply fan, speed level 2."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_LVL3",
             "registeraddress": 118,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 3."
+            "undefined": "Fan speed log values for supply fan, speed level 3."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_LVL4",
             "registeraddress": 119,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 4."
+            "undefined": "Fan speed log values for supply fan, speed level 4."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_LVL5",
             "registeraddress": 120,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 5."
+            "undefined": "Fan speed log values for supply fan, speed level 5."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_LVL1",
             "registeraddress": 121,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 1."
+            "undefined": "Fan speed log values for extract fan, speed level 1."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_LVL2",
             "registeraddress": 122,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 2."
+            "undefined": "Fan speed log values for extract fan, speed level 2."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_LVL3",
             "registeraddress": 123,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 3."
+            "undefined": "Fan speed log values for extract fan, speed level 3."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_LVL4",
             "registeraddress": 124,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 4."
+            "undefined": "Fan speed log values for extract fan, speed level 4."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_LVL5",
             "registeraddress": 125,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 5."
+            "undefined": "Fan speed log values for extract fan, speed level 5."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_NR_LVL1",
             "registeraddress": 126,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 1, non-resettable."
+            "undefined": "Fan speed log values for supply fan, speed level 1, non-resettable."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_NR_LVL2",
             "registeraddress": 127,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 2, non-resettable."
+            "undefined": "Fan speed log values for supply fan, speed level 2, non-resettable."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_NR_LVL3",
             "registeraddress": 128,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 3, non-resettable."
+            "undefined": "Fan speed log values for supply fan, speed level 3, non-resettable."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_NR_LVL4",
             "registeraddress": 129,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 4, non-resettable."
+            "undefined": "Fan speed log values for supply fan, speed level 4, non-resettable."
         },
         {
             "name": "REG_FAN_SPEED_LOG_SF_NR_LVL5",
             "registeraddress": 130,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for supply fan, speed level 5, non-resettable."
+            "undefined": "Fan speed log values for supply fan, speed level 5, non-resettable."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_NR_LVL1",
             "registeraddress": 131,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 1, non-resettable."
+            "undefined": "Fan speed log values for extract fan, speed level 1, non-resettable."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_NR_LVL2",
             "registeraddress": 132,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 2, non-resettable."
+            "undefined": "Fan speed log values for extract fan, speed level 2, non-resettable."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_NR_LVL3",
             "registeraddress": 133,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 3, non-resettable."
+            "undefined": "Fan speed log values for extract fan, speed level 3, non-resettable."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_NR_LVL4",
             "registeraddress": 134,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 4, non-resettable."
+            "undefined": "Fan speed log values for extract fan, speed level 4, non-resettable."
         },
         {
             "name": "REG_FAN_SPEED_LOG_EF_NR_LVL5",
             "registeraddress": 135,
             "readmode": "R",
             "access": "Reg",
-            "description": "Fan speed log values for extract fan, speed level 5, non-resettable."
+            "undefined": "Fan speed log values for extract fan, speed level 5, non-resettable."
         },
         {
             "name": "REG_FAN_SYSTEM_CURVE_SF",
@@ -261,7 +269,7 @@
             "readmode": "R/W",
             "nvm": "Y",
             "access": "Reg",
-            "description": "System curve for supply fan. Value can be from 1 to 20."
+            "undefined": "System curve for supply fan. Value can be from 1 to 20."
         },
         {
             "name": "REG_FAN_SYSTEM_CURVE_EF",
@@ -269,17 +277,17 @@
             "readmode": "R/W",
             "nvm": "Y",
             "access": "Reg",
-            "description": "System curve for extract fan. Value can be from 1 to 10."
+            "undefined": "System curve for extract fan. Value can be from 1 to 10."
         },
         {
             "name": "REG_FAN_CONTROL_TYPE",
             "registeraddress": 138,
             "readmode": "R/W",
             "access": "Reg",
-            "description": "Type of fan control: 0: Air ow 1: Speed"
+            "undefined": "Type of fan control: \n0: Air flow \n1: Speed"
         }
     ],
-    "Heater Control": [
+    "heaterControl": [
         {
             "name": "REG_HC_HEATER_TYPE",
             "registeraddress": 201,
@@ -432,8 +440,48 @@
             "registeraddress": 219,
             "readmode": "R",
             "scaling": 1,
-            "access": "Reg + Coil",
-            "description": " Coil 3489: State of temperature sensor on input 1\n Coil 3490: State of temperature sensor on input 2\n Coil 3491: State of temperature sensor on input 3\n Coil 3492: State of temperature sensor on input 4\n Coil 3493: State of temperature sensor on input 5\n\n Coil state: 0: no sensor fault 1: sensor fault"
+            "access": "Reg",
+            "description": "Coil 3489: State of temperature sensor on input 1\nCoil 3490: State of temperature sensor on input 2\nCoil 3491: State of temperature sensor on input 3\nCoil 3492: State of temperature sensor on input 4\nCoil 3493: State of temperature sensor on input 5\n\nCoil state: 0: no sensor fault 1: sensor fault"
+        },
+        {
+            "name": "REG_HC_TEMP_STATE_1",
+            "registeraddress": 3489,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Coil",
+            "description": "Coil 3489: State of temperature sensor on input 1\n \nCoil state: \n0: no sensor fault \n1: sensor fault"
+        },
+        {
+            "name": "REG_HC_TEMP_STATE_2",
+            "registeraddress": 3490,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Coil",
+            "description": "Coil 3490: State of temperature sensor on input 2\n \nCoil state: \n0: no sensor fault \n1: sensor fault"
+        },
+        {
+            "name": "REG_HC_TEMP_STATE_3",
+            "registeraddress": 3491,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Coil",
+            "description": "Coil 3491: State of temperature sensor on input 3\n \nCoil state: \n0: no sensor fault \n1: sensor fault"
+        },
+        {
+            "name": "REG_HC_TEMP_STATE_4",
+            "registeraddress": 3492,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Coil",
+            "description": "Coil 3492: State of temperature sensor on input 4\n \nCoil state: \n0: no sensor fault \n1: sensor fault"
+        },
+        {
+            "name": "REG_HC_TEMP_STATE_5",
+            "registeraddress": 3493,
+            "readmode": "R",
+            "scaling": 1,
+            "access": "Coil",
+            "description": "Coil 3493: State of temperature sensor on input 5\n \nCoil state: \n0: no sensor fault \n1: sensor fault"
         },
         {
             "name": "REG_HC_PRE- HEATER_TYPE",
@@ -451,7 +499,7 @@
             "description": "Set point support control heater during \"Home/Leave\" function."
         }
     ],
-    "Damper": [
+    "damper": [
         {
             "name": "REG_DAMPER_PWM",
             "registeraddress": 301,
@@ -460,29 +508,43 @@
             "description": "Output value for damper. 0-100 correspond to 0 to 10V."
         }
     ],
-    "Rotor": [
+    "rotor": [
         {
             "name": "REG_ROTOR_STATE",
             "registeraddress": 351,
             "readmode": "R",
             "access": "Reg",
-            "description": "State for the rotor control state machine. 0: Normal 1: Rotor fault assumed 2: Rotor fault detected\n 3: Summer mode conditions valid, but summer mode not yet active.\n 4: Summer mode\n 5: Waiting to go out of Manual summer mode due to temperature conditions\n 6: Manual summer mode 7: Rotor cleaning during summer mode\n 8: Rotor cleaning during manual summer mode\n 9: Fans off 10: Rotor cleaning during fans off\n 11: Rotor fault, conditions for rotor fault not valid anymore"
+            "description": "State for the rotor control state machine. \n0: Normal \n1: Rotor fault assumed \n2: Rotor fault detected\n3: Summer mode conditions valid, but summer mode not yet active.\n4: Summer mode\n5: Waiting to go out of Manual summer mode due to temperature conditions\n6: Manual summer mode \n7: Rotor cleaning during summer mode\n8: Rotor cleaning during manual summer mode\n9: Fans off \n10: Rotor cleaning during fans off\n11: Rotor fault, conditions for rotor fault not valid anymore"
         },
         {
             "name": "REG_ROTOR_RELAY_ACTIVE",
             "registeraddress": 352,
             "readmode": "R",
-            "access": "Reg + Coil",
-            "description": "Coil 5617: rotor relay active. 0: not active 1: active."
+            "access": "Reg",
+            "description": "Coil 5617: rotor relay active. \n0: not active \n1: active."
+        },
+        {
+            "name": "REG_ROTOR_RELAY_ACTIVE_COIL",
+            "registeraddress": 5617,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Reg 352: rotor relay active. \n0: not active \n1: active."
         }
     ],
-    "Week Program": [
+    "weekProgram": [
         {
             "name": "REG_WP_ACTIVE",
             "registeraddress": 401,
             "readmode": "R",
-            "access": "Reg + Coil",
+            "access": "Reg",
             "description": "Coil address: 6401 \n0: week program not active \n1: week program active"
+        },
+        {
+            "name": "REG_WP_ACTIVE_COIL",
+            "registeraddress": 6401,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Reg address: 401 \n0: week program not active \n1: week program active"
         },
         {
             "name": "REG_WP_ON_LVL",
@@ -897,7 +959,7 @@
             "access": "Reg"
         }
     ],
-    "System Parameters": [
+    "systemParameters": [
         {
             "name": "REG_SYSTEM_TYPE",
             "registeraddress": 501,
@@ -957,7 +1019,7 @@
             "description": "Write value 165 will stores the following parameters in NVM:\n• REG_FAN_SPEED_LEVEL \n• REG_HC_TEMP_LVL \n• REG_FAN_SF_FLOW_LOW \n• REG_FAN_EF_FLOW_LOW \n• REG_FAN_SF_FLOW_NOM \n• REG_FAN_EF_FLOW_NOM \n• REG_FAN_SF_FLOW_HIGH \n• REG_FAN_EF_FLOW_HIGH \nAll other values: no functionality.\n Can only be activated by addressing with Function Code 6 (“Write single register”)."
         }
     ],
-    "Clock": [
+    "clock": [
         {
             "name": "REG_CLK_S",
             "registeraddress": 551,
@@ -1014,7 +1076,7 @@
             "description": "Clock: day of week (0..6: Monday..sunday)"
         }
     ],
-    "Filter": [
+    "filter": [
         {
             "name": "REG_FILTER_PER",
             "registeraddress": 601,
@@ -1032,7 +1094,7 @@
             "description": "Elapsed days since last lter replacement"
         }
     ],
-    "VTC Defrosting": [
+    "vtc_Defrosting": [
         {
             "name": "REG_DEFR_STATE_VTC",
             "registeraddress": 651,
@@ -1045,15 +1107,23 @@
             "registeraddress": 652,
             "readmode": "R",
             "access": "Reg",
-            "description": "Defrosting con guration. \n0: A \n1: B \n2: C\n3: D"
+            "description": "Defrosting configuration. \n0: A \n1: B \n2: C\n3: D"
         },
         {
             "name": "REG_DEFR_UNBAL_ALLOWED",
             "registeraddress": 653,
             "readmode": "R/W",
             "nvm": "Y",
-            "access": "Reg + Coil",
+            "access": "Reg",
             "description": "Coil 10433: Unbalance allowed. \n0: Unbalance not allowed. \n1: Unbalance allowed."
+        },
+        {
+            "name": "REG_DEFR_UNBAL_ALLOWED_COIL",
+            "registeraddress": 653,
+            "readmode": "R/W",
+            "nvm": "Y",
+            "access": "Coil",
+            "description": "Reg address 653: Unbalance allowed. \n0: Unbalance not allowed. \n1: Unbalance allowed."
         },
         {
             "name": "REG_DEFR_MODE_VTC",
@@ -1064,7 +1134,7 @@
             "description": "Defrosting mode. \nAllowed values: 1-5."
         }
     ],
-    "VR/VTR Defrosting": [
+    "vr_vtrDefrosting": [
         {
             "name": "REG_DEFR_STATE_VR",
             "registeraddress": 671,
@@ -1081,13 +1151,62 @@
             "description": "Defrosting mode. \nAllowed values: 0-5."
         }
     ],
-    "Digital Inputs": [
+    "digitalInputs": [
         {
             "name": "REG_DI_ALL",
             "registeraddress": 701,
             "readmode": "R/W",
-            "access": "Reg + Coil",
+            "access": "Reg",
             "description": "Digital inputs. \nCoil 11201: input 1. \nCoil 11202: input 2. \nCoil 11203: input 3. \nCoil 11204: input 4. \nCoil 11205: input 5. \nCoil 11206: input 6. Note: read only! \nCoil 11207: input 7. \nCoil value 0: input inactive. \nCoil value 1: input active."
+        },
+        {
+            "name": "REG_DI_1",
+            "registeraddress": 11201,
+            "readmode": "R/W",
+            "access": "Coil",
+            "description": "Digital inputs. \nCoil 11201: input 1. \nCoil value 0: input inactive. \nCoil value 1: input active."
+        },
+        {
+            "name": "REG_DI_2",
+            "registeraddress": 11202,
+            "readmode": "R/W",
+            "access": "Coil",
+            "description": "Digital inputs. \nCoil 11202: input 2. \nCoil value 0: input inactive. \nCoil value 1: input active."
+        },
+        {
+            "name": "REG_DI_3",
+            "registeraddress": 11203,
+            "readmode": "R/W",
+            "access": "Coil",
+            "description": "Digital inputs. \nCoil 11203: input 3. \nCoil value 0: input inactive. \nCoil value 1: input active."
+        },
+        {
+            "name": "REG_DI_4",
+            "registeraddress": 11204,
+            "readmode": "R/W",
+            "access": "Coil",
+            "description": "Digital inputs. \nCoil 11204: input 4. \nCoil value 0: input inactive. \nCoil value 1: input active."
+        },
+        {
+            "name": "REG_DI_5",
+            "registeraddress": 11205,
+            "readmode": "R/W",
+            "access": "Coil",
+            "description": "Digital inputs. \nCoil 11205: input 5. \nCoil value 0: input inactive. \nCoil value 1: input active."
+        },
+        {
+            "name": "REG_DI_6",
+            "registeraddress": 11206,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Digital inputs. \nCoil 11206: input 6. Note: read only! \nCoil value 0: input inactive. \nCoil value 1: input active."
+        },
+        {
+            "name": "REG_DI_7",
+            "registeraddress": 11207,
+            "readmode": "R/W",
+            "access": "Coil",
+            "description": "Digital inputs. \nCoil 11207: input 7. \nCoil value 0: input inactive. \nCoil value 1: input active."
         },
         {
             "name": "REG_DI_EXT_RUNNING_M",
@@ -1154,32 +1273,116 @@
             "description": "Extract fan speed level at activated digital input 3"
         }
     ],
-    "PCU-PB": [
+    "pcu_pb": [
         {
             "name": "REG_PCU_PB_RELAYS",
             "registeraddress": 751,
             "readmode": "R",
-            "access": "Reg + Coil",
+            "access": "Reg",
             "description": "Coil Address 12001: relay for preheater on \nCoil Address 12002: relay for reheater on\nCoil Address 12003: common relay for heater and preheater on"
+        },
+        {
+            "name": "REG_PCU_PB_RELAYS",
+            "registeraddress": 12001,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12001: relay for preheater on "
+        },
+        {
+            "name": "REG_PCU_PB_RELAYS",
+            "registeraddress": 12002,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12002: relay for reheater on\n"
+        },
+        {
+            "name": "REG_PCU_PB_RELAYS",
+            "registeraddress": 12003,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12003: common relay for heater and preheater on"
         }
     ],
-    "Alarms": [
+    "alarms": [
         {
             "name": "REG_ALARMS_ALL",
             "registeraddress": 801,
             "readmode": "R",
-            "access": "Reg + Coil",
+            "access": "Reg",
             "description": "Coil Address 12801: Filter alarm\nCoil Address 12802: Fan alarm\nCoil Address 12803: Not used\nCoil Address 12804: Rotor alarm\nCoil Address 12805: Frost alarm\nCoil Address 12806: PCU-PB alarm\nCoil Address 12807: Temperature sensor alarm\nCoil Address 12808: Emergency Thermostat alarm\nCoil Address 12809: Damper alarm \nCoil value 0: alarm not active \nCoil value 1: alarm active"
+        },
+        {
+            "name": "REG_ALARMS_FILTER",
+            "registeraddress": 12801,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12801: Filter alarm\nCoil value 0: alarm not active \nCoil value 1: alarm active"
+        },
+        {
+            "name": "REG_ALARMS_FAN",
+            "registeraddress": 12802,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12802: Fan alarm\nCoil value 0: alarm not active \nCoil value 1: alarm active"
+        },
+        {
+            "name": "REG_ALARMS_ROTOR",
+            "registeraddress": 12804,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12804: Rotor alarm\nCoil value 0: alarm not active \nCoil value 1: alarm active"
+        },
+        {
+            "name": "REG_ALARMS_FROST",
+            "registeraddress": 12805,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12805: Frost alarm\nCoil value 0: alarm not active \nCoil value 1: alarm active"
+        },
+        {
+            "name": "REG_ALARMS_PCU_PB",
+            "registeraddress": 12806,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12806: PCU-PB alarm\nCoil value 0: alarm not active \nCoil value 1: alarm active"
+        },
+        {
+            "name": "REG_ALARMS_TEMP_SENS",
+            "registeraddress": 12807,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12807: Temperature sensor alarm\nCoil value 0: alarm not active \nCoil value 1: alarm active"
+        },
+        {
+            "name": "REG_ALARMS_EMG_THERM",
+            "registeraddress": 12808,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12808: Emergency Thermostat alarm\nCoil value 0: alarm not active \nCoil value 1: alarm active"
+        },
+        {
+            "name": "REG_ALARMS_DAMPER",
+            "registeraddress": 12809,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Coil Address 12809: Damper alarm \nCoil value 0: alarm not active \nCoil value 1: alarm active"
         },
         {
             "name": "REG_ALARMS_RELAY_ACTIVE",
             "registeraddress": 802,
             "readmode": "R",
-            "access": "Reg + Coil",
+            "access": "Reg",
             "description": "Coil address 12817: alarm relay active. \n0: Relay not active. \n1: Relay active."
+        },
+        {
+            "name": "REG_ALARMS_RELAY_ACTIVE_COIL",
+            "registeraddress": 12817,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Reg address 802: alarm relay active. \n0: Relay not active. \n1: Relay active."
         }
     ],
-    "Demand Control": [
+    "demandControl": [
         {
             "name": "REG_DEMC_CO2_SP",
             "registeraddress": 851,
@@ -1244,7 +1447,7 @@
             "description": "Value in %. Range: 0-100."
         }
     ],
-    "Wireless Network": [
+    "wirelessNetwork": [
         {
             "name": "REG_WL_NODE_1_TYPE",
             "registeraddress": 901,
@@ -1256,8 +1459,22 @@
             "name": "REG_WL_NODE_1_VALUE_T",
             "registeraddress": 902,
             "readmode": "R",
-            "access": "Reg + Coil",
+            "access": "Reg",
             "description": "Value depending on node type:\n REG_WL_NODE_1_TYPE = 1: CO2 value\n REG_WL_NODE_1_TYPE = 2: RH value\n REG_WL_NODE_1_TYPE = 3: use coils to read:\nCoil Address 14417: input 1 \nCoil Address 14418: input 2 \nAll other node types: 0."
+        },
+        {
+            "name": "REG_WL_NODE_1_VALUE_T",
+            "registeraddress": 14417,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Value depending on node type:\n REG_WL_NODE_1_TYPE = 1: CO2 value\n REG_WL_NODE_1_TYPE = 2: RH value\n REG_WL_NODE_1_TYPE = 3: use coils to read:\nCoil Address 14417: input 1 \nAll other node types: 0."
+        },
+        {
+            "name": "REG_WL_NODE_1_VALUE_T",
+            "registeraddress": 14418,
+            "readmode": "R",
+            "access": "Coil",
+            "description": "Value depending on node type:\n REG_WL_NODE_1_TYPE = 1: CO2 value\n REG_WL_NODE_1_TYPE = 2: RH value\n REG_WL_NODE_1_TYPE = 3: use coils to read:\nCoil Address 14418: input 2 \nAll other node types: 0."
         },
         {
             "name": "REG_WL_NODE_1_STATUS",

@@ -8,16 +8,7 @@ var app = require('../app');
 var debug = require('debug')('init:server');
 var http = require('http');
 
-var ModbusRTU = require("modbus-serial");
-var modClient = new ModbusRTU();
-
-var modbusValues = new Array();
-
-// open connection to a tcp line for Modbus RTU
-modClient.connectTelnet("192.168.1.121",{port: 1234},function(){
-  modClient.setID(1);
-});
-
+var modClient = require("./modbus");
 /**
  * Get port from environment and store in Express.
  */
@@ -31,7 +22,7 @@ app.set('port', port);
 
 var server = http.createServer(app);
 var io = require('socket.io')(server);
-var Stopwatch = require('../models/stopwatch');
+var Stopwatch = require('../modules/stopwatch');
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -45,66 +36,73 @@ stopwatch.on('tick:stopwatch',function(time){
   io.sockets.emit('time',{ time: time });
 });
 
-stopwatch.on('start:stopwatch',function(){
-  modClient.writeCoil(11202,true)
-      .then(function(){
-        modClient.readCoils(11202, 1).then(function(latestval){
-          io.emit('unBalanced', latestval.data[0]);
-          //console.log('Latest unBalanced: ' + latestval.data[0]);
-        }).then(function(){
-          modClient.readHoldingRegisters(100, 1)
-            .then(function(data) {
-                //console.log('REG_FAN_SPEED_LEVEL: ' + data.data);
-                io.emit('speedMode', data.data);
-              })
-        });
-      });
+
+
+stopwatch.on('start:stopwatch', function(){
+  
+  modClient.setFireplaceMode(true).then(function(ret){
+    io.emit('unBalanced', ret);
+  }).then(function(){      
+    modClient.getFanLevel().then(function(ret){
+      if(ret){
+        io.emit('speedMode', ret);
+      }
+    });
+  });
 });
 
 stopwatch.on('stop:stopwatch',function(){
-  modClient.writeCoil(11202,false)
-      .then(function(){
-        modClient.readCoils(11202, 1).then(function(latestval){
-            io.emit('unBalanced', latestval.data[0]);
-            //console.log('Latest unBalanced: ' + latestval.data[0]);
-        }).then(function(){
-          modClient.readHoldingRegisters(100, 1)
-            .then(function(data) {
-                //console.log('REG_FAN_SPEED_LEVEL: ' + data.data);
-                io.emit('speedMode', data.data);
-              })
-        });
-      })
-
+  modClient.setFireplaceMode(false).then(function(ret){
+    io.emit('unBalanced', ret);
+  }).then(function(){
+    // get latest fanLevel 
+    modClient.getFanLevel().then(function(ret){
+      if(ret){
+        io.emit('speedMode', ret);
+      }
+    });
+  });
 });
 
 
 io.on('connection', function(socket){
   console.log('a user connected');
-  modClient.readHoldingRegisters(100, 1).then(function(data) {
-        //console.log('REG_FAN_SPEED_LEVEL: ' + data.data);
-        io.emit('speedMode', data.data);
-      }).then(function(){
-        modClient.readCoils(11202, 1).then(function(data) {
-          //console.log('REG_DI_03: ' + data.data[0]);
-          io.emit('unBalanced', data.data[0]);
-        })
-      }).catch(console.log);    
+  modClient.getFanLevel().then(function(ret){
+    if(ret){
+      io.emit('speedMode', ret);
+    }
+  }).then(function(){
+    modClient.getFireplaceMode().then(function(ret){
+      if(ret){
+        io.emit('unBalanced', ret);
+      }
+    }).then(function(){
+      modClient.getTemperature().then(function(ret){
+        if(ret){
+          io.emit('tempSetpoint', ret);
+        }
+      })
+    })
+  }).catch(console.log);    
 
   socket.on('speedMode', function(value){
-    //console.log('SpeedMode: ' + value);
-    modClient.writeRegisters(100,value)
-      .then(function(){
-        modClient.readHoldingRegisters(100, 1)
-          .then(function(latestval){
-            io.emit('speedMode', latestval.data);
-            //console.log('Latest SpeedMode: ' + latestval.data);
-          });
-      })
-      .catch(console.log);
+      modClient.setFanLevel(value).then(function(ret){
+        if(ret){
+          io.emit('speedMode', ret);
+        }
+      });
   });
+
+  socket.on('tempSetpoint', function(value){
+      modClient.setTemperature(value).then(function(ret){
+          console.log("set setpoint " + value);
+        if(ret){
+          io.emit('tempSetpoint', ret);
+        }
+      });
+  });
+
   socket.on('unBalanced', function(){
-    console.log("click!");
     if(stopwatch.isRunning()){
       stopwatch.stop();
     }else{

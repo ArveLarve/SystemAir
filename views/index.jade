@@ -9,6 +9,27 @@ block content
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <div class="panel panel-default">
+            <div class="panel-heading">Fire Place</div>
+            <div class="panel-body fireplace">
+              <button type="button" id="btn-fireplace-mode" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span><br/>Fire Place Mode</button>
+              <div class="timer">
+                <div class="remaining">2 min</div>
+                <div id="slider" class="dragdealer">
+                  <div class="handle blue-bar"></div>
+                </div>
+                <div class="ticks">
+                  <span>0</span>
+                  <span>30</span>
+                  <span>60</span>
+                  <span>90</span>
+                  <span>120</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-xs-12">
+          <div class="panel panel-default">
             <div class="panel-heading">Speed</div>
             <div class="panel-body">
               <div class="btn-group" role="group" aria-label="...">
@@ -19,25 +40,27 @@ block content
             </div>
           </div>
         </div>
-        <div class="col-sm-6 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">Fire Place</div>
-            <div class="panel-body fireplace">
-                <button type="button" id="btn-fireplace-mode" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span><br/>Fire Place Mode</button>
-                <div class="timer">
-                  <div class="remaining">2 min</div>
-                  <div id="slider" class="dragdealer">
+          <div class="col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Temperature</div>
+              <div class="panel-body temperature">
+                <div class="tempSlider">
+                  <div class="setpoint"></div>
+                  <div id="tempSlider" class="dragdealer">
                     <div class="handle blue-bar"></div>
                   </div>
-                  <div class="ticks">
-                    <span>0</span>
-                    <span>30</span>
-                    <span>60</span>
-                    <span>90</span>
-                    <span>120</span>
+                  <div class="tempTicks">
+                    <span>12</span>
+                    <span>14</span>
+                    <span>16</span>
+                    <span>18</span>
+                    <span>20</span>
+                    <span>22</span>
                 </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>

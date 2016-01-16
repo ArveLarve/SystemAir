@@ -1,7 +1,8 @@
 
 var socket = io();
 var isDragging = false;
-var dragdealer;
+var isDraggingTemp = false;
+var speedSlider,tempSlider;
 $(document).ready(function(){
 	$("#btn-fireplace-mode").click(function(){
 		socket.emit('unBalanced');
@@ -15,7 +16,7 @@ $(document).ready(function(){
 	$("#btn-speed-max").click(function(){
 	 		socket.emit('speedMode', '3');
 	});
-	dragdealer = new Dragdealer('slider',{
+	speedSlider = new Dragdealer('slider',{
 		steps: 9,
 		slide: false,
 		snap: true,
@@ -30,7 +31,32 @@ $(document).ready(function(){
 			isDragging = false;
 		}
 	});
+	tempSlider = new Dragdealer('tempSlider',{
+		steps: 12,
+		slide: false,
+		snap: true,
+		animationCallback: function(x,y){
+			var temp = (Math.round(x * 11));
+			$('.setpoint').text((temp === 0 ? "Off" : (temp+11)+ " °C"));
+		},
+		dragStartCallback: function(x,y){
+			isDraggingTemp = true;
+		},
+		dragStopCallback: function(x, y){
+			socket.emit('tempSetpoint', Math.round(x * 11));
+			isDraggingTemp = false;
+		}
+	});
 });
+
+socket.on('tempSetpoint', function(value){
+	if(isDraggingTemp)
+		return;
+	var tmp = parseInt(value) + 11;
+	console.log(tmp);
+	$('.setpoint').text(tmp);
+	tempSlider.setValue((value/11),0,true);
+  });
 
 socket.on('unBalanced', function(value){
 	if(value){
@@ -68,7 +94,8 @@ socket.on('time',function (time) {
 	var parts = time.time.split(':');
 	var minutes = (parseInt(parts[0]) * 60) + parseInt(parts[1]);
 	var place = minutes - (minutes % 15) + 15;
-	dragdealer.setValue((place/120),0,true);
+	speedSlider.setValue((place/120),0,true);
+
 
 });
 
