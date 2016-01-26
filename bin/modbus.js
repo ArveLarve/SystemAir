@@ -1,7 +1,5 @@
-var SerialPort = require("serialport").SerialPort;
-var serialPort = new SerialPort("/dev/tty.wchusbserial14110", {baudrate: 9600});
 var ModbusRTU = require("modbus-serial");
-var modClient = new ModbusRTU(serialPort);
+var modClient = new ModbusRTU();
 var systemair = require("./systemair")(1);
 /******************************/
 
@@ -25,6 +23,8 @@ function getFunctionById(integerValue){
 			ret = "readHoldingRegisters";
 			break;
 		case 6:
+			ret = "writeRegister";
+			break;
 		case 16:
 			ret = "writeRegisters";
 			break; 
@@ -34,24 +34,13 @@ function getFunctionById(integerValue){
 
 // open connection to a tcp line for Modbus RTU
 
-modClient.open(
-//modClient.connectTelnet(
-//	modbusRTU_TCPServerAddress,
-//	{port: modbusRTU_TCPServerPort},
+modClient.connectTelnet(
+	modbusRTU_TCPServerAddress,
+	{port: modbusRTU_TCPServerPort},
 	function(){
   		modClient.setID(1);
 	}
 );
-
-//modClient.writeFC16(1,206,[10],function(err,value){
-//modClient.readHoldingRegisters(100,1).then(function(err,data){
-//	if(err){
-//		console.log(err);
-//	}
-
-//	console.log(data.data);
-//});
-//modClient.readHoldingRegisters(207,1).then(function(err){console.log(err)});
 
 module.exports = {
 	getFanLevel : function(){
@@ -104,12 +93,9 @@ module.exports = {
 	setTemperature : function(value){
 		var modbusObject = systemair.temperatureSetpoint;
 		if(modbusObject.functionCode.write){
-			console.log(parseInt(value));
 		    return modClient[getFunctionById(modbusObject.functionCode.write)](modbusObject.address, parseInt(value)).then(function(){
-				console.log("here!");
 		        return modClient[getFunctionById(modbusObject.functionCode.read)](modbusObject.address, 1)
 		          .then(function(latestval){
-		          	console.log(latestval.data);
 		            return latestval.data;
 		        });
 		    });	

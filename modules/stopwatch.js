@@ -43,7 +43,6 @@ Stopwatch.prototype.start = function(startTime) {
     this.startTime = startTime * this.minute || this.startTime;
     this.time = this.startTime;
 
-    console.log('Starting Stopwatch!');
     // note the use of _.bindAll in the constructor
     // with bindAll we can pass one of our methods to
     // setInterval and have it called with the proper 'this' value
@@ -52,7 +51,6 @@ Stopwatch.prototype.start = function(startTime) {
 };
 
 Stopwatch.prototype.stop = function() {
-    console.log('Stopping Stopwatch!');
     if (this.interval) {
         clearInterval(this.interval);
         this.interval = undefined;
@@ -62,7 +60,6 @@ Stopwatch.prototype.stop = function() {
 
 Stopwatch.prototype.reset = function(restartTime) {
     this.time = (restartTime * this.minute);
-    console.log('Resetting Stopwatch! ');
     this.emit('reset:stopwatch', this.formatTime(this.time));
 };
 

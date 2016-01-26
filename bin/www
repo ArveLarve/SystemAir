@@ -66,7 +66,7 @@ stopwatch.on('stop:stopwatch',function(){
 
 
 io.on('connection', function(socket){
-  console.log('a user connected');
+
   modClient.getFanLevel().then(function(ret){
     if(ret){
       io.emit('speedMode', ret);
@@ -95,7 +95,6 @@ io.on('connection', function(socket){
 
   socket.on('tempSetpoint', function(value){
       modClient.setTemperature(value).then(function(ret){
-          console.log("set setpoint " + value);
         if(ret){
           io.emit('tempSetpoint', ret);
         }
@@ -114,6 +113,8 @@ io.on('connection', function(socket){
     stopwatch.reset(value);
   });
 });
+
+
 
 
 
