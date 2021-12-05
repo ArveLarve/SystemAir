@@ -14,15 +14,10 @@
     "socket.io": "^1.3.7",
     "util": "^0.10.3"
   },
-  "folders": [
-    {
-      "path": "/Users/arvelotveit/Documents/Code/systemair"
-    }
-  ],
-  "name": "init",
+  "name": "systemair",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/api.js"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }
