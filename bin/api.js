@@ -108,7 +108,7 @@ io.on('connection', function(socket){
       modClient.setTemperature(value)
         .then(function(ret){
           if(ret){
-            io.emit('tempSetpoint', ret);
+            io.emit('tempCurrent', ret);
           }
         });
   });
