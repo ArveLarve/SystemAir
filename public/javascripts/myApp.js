@@ -132,7 +132,7 @@ socket.on('time',function (time) {
 //
 // Temperature setpoint
 //
-socket.on('tempSetpoint', function(value){
+socket.on('tempCurrent', function(value){
 	if(isDraggingTemp)
 		return;
 

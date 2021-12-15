@@ -40,15 +40,18 @@ stopwatch.on('tick:stopwatch',function(time){
 
 stopwatch.on('start:stopwatch', function(){
   
-  modClient.setFireplaceMode(true).then(function(ret){
-    io.emit('unBalanced', ret);
-  }).then(function(){      
-    modClient.getFanLevel().then(function(ret){
-      if(ret){
-        io.emit('speedMode', ret);
-      }
+  modClient.setFireplaceMode(true)
+    .then(function(ret){
+      io.emit('unBalanced', ret);
+    })
+    .then(function(){      
+      modClient.getFanLevel()
+        .then(function(ret){
+          if(ret){
+            io.emit('speedMode', ret);
+          }
+        });
     });
-  });
 });
 
 stopwatch.on('stop:stopwatch',function(){
@@ -56,49 +59,58 @@ stopwatch.on('stop:stopwatch',function(){
     io.emit('unBalanced', ret);
   }).then(function(){
     // get latest fanLevel 
-    modClient.getFanLevel().then(function(ret){
-      if(ret){
-        io.emit('speedMode', ret);
-      }
-    });
+    modClient.getFanLevel()
+      .then(function(ret){
+        if(ret){
+          io.emit('speedMode', ret);
+        }
+      });
   });
 });
 
 
 io.on('connection', function(socket){
 
-  modClient.getFanLevel().then(function(ret){
-    if(ret){
-      io.emit('speedMode', ret);
-    }
-  }).then(function(){
-    modClient.getFireplaceMode().then(function(ret){
+  modClient.getFanLevel()
+    .then(function(ret){
       if(ret){
-        io.emit('unBalanced', ret);
+        io.emit('speedMode', ret);
       }
-    }).then(function(){
-      modClient.getTemperature().then(function(ret){
-        if(ret){
-          io.emit('tempSetpoint', ret);
-        }
-      })
     })
-  }).catch(console.log);    
+    .then(function(){
+      modClient.getFireplaceMode()
+        .then(function(ret){
+          if(ret){
+            io.emit('unBalanced', ret);
+          }
+        })
+        .then(function(){
+          modClient.getTemperature()
+            .then(function(ret){
+              if(ret){
+                io.emit('tempCurrent', ret);
+              }
+            });
+        });
+    })
+    .catch(console.log);    
 
   socket.on('speedMode', function(value){
-      modClient.setFanLevel(value).then(function(ret){
-        if(ret){
-          io.emit('speedMode', ret);
-        }
-      });
+      modClient.setFanLevel(value)
+        .then(function(ret){
+          if(ret){
+            io.emit('speedMode', ret);
+          }
+        });
   });
 
   socket.on('tempSetpoint', function(value){
-      modClient.setTemperature(value).then(function(ret){
-        if(ret){
-          io.emit('tempSetpoint', ret);
-        }
-      });
+      modClient.setTemperature(value)
+        .then(function(ret){
+          if(ret){
+            io.emit('tempSetpoint', ret);
+          }
+        });
   });
 
   socket.on('unBalanced', function(){
